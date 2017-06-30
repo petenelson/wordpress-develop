@@ -142,6 +142,11 @@ final class WP_Term {
 
 			// If a taxonomy was specified, find a match.
 			if ( $taxonomy ) {
+
+				// Clear out the cached term since it does not have the
+				// matching taxonomy.
+				$_term = false;
+
 				foreach ( $terms as $match ) {
 					if ( $taxonomy === $match->taxonomy ) {
 						$_term = $match;
